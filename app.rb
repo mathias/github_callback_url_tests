@@ -2,11 +2,10 @@ require 'rubygems'
 require 'sinatra'
 
 class DumbererApp < Sinatra::Base
-  # use Rack::CommonLogger for request logging
 
   # the main endpoint for scm services
   post '/' do
-    # info "Handling ping for #{credentials.inspect}"
+    puts "Handling ping for #{credentials.inspect}"
     puts data
     puts "Request created : #{payload.inspect}"
     204
@@ -17,7 +16,7 @@ class DumbererApp < Sinatra::Base
   def data
     {
       :type => event_type,
-      #:credentials => credentials,
+      :credentials => credentials,
       :request => payload
     }
   end
